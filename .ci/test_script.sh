@@ -46,6 +46,7 @@ case "$TEST_TYPE" in
         coverage report
         ;;
     pre-commit)
-        pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
+        /home/travis/.rvm/rubies/ruby-2.4.1/bin/ruby /home/travis/.rvm/rubies/ruby-2.4.1/bin/gem -v
+        pre-commit run --all-files || ( /home/travis/.rvm/rubies/ruby-2.4.1/bin/ruby /home/travis/.rvm/rubies/ruby-2.4.1/bin/gem -v ; git status --short ; git diff ; exit 1 )
         ;;
 esac
