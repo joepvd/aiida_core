@@ -455,7 +455,7 @@
 #       - --fix=xrange_six
 #       - --fix=zip
 
-- repo: git://github.com/pre-commit/pre-commit-hooks
-  sha: v1.1.1
-  hooks:
-  - id: check-yaml
+# - repo: git://github.com/pre-commit/pre-commit-hooks
+#   sha: v1.1.1
+#   hooks:
+#   - id: check-yaml
