@@ -6,7 +6,11 @@ language: python
 python:
     - "2.7"
 
-cache: pip
+jobs:
+  include:
+  - env: TEST_TYPE="pre-commit" UPDATE=yes
+    cache: pip
+  - env: TEST_TYPE="pre-commit" UPDATE=no
 
 services:
     - rabbitmq
@@ -51,12 +55,7 @@ install:
     # Install AiiDA with some optional dependencies
     - if [ "$TEST_TYPE" == "docs" ]; then pip install . && pip install -r docs/requirements_for_rtd.txt; else pip install .[all]; fi
 
-env:
-    ## Build matrix to test both backends, and the docs
-    ## I still let it create the test backend for django
-    ## also when building the docs
-    ## because otherwise the code would complain. Also, I need latex.
-    - TEST_TYPE="pre-commit"
+
 
 before_script:
     - .ci/setup_profiles.sh
